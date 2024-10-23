@@ -455,6 +455,8 @@ pub struct LocalExecutor<'a> {
     _marker: PhantomData<Rc<()>>,
 }
 
+unsafe impl Send for LocalExecutor<'_> {}
+unsafe impl Sync for LocalExecutor<'_> {}
 impl UnwindSafe for LocalExecutor<'_> {}
 impl RefUnwindSafe for LocalExecutor<'_> {}
 
